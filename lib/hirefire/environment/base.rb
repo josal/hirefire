@@ -165,7 +165,9 @@ module HireFire
       #
       # @return [nil]
       def fire
-        if jobs == 0 and (workers.nil? || workers > min_workers)
+        workers = nil #simulando el error de heroku para ver si se envían dos mails :s
+        #if jobs == 0 and (workers.nil? || workers > min_workers)        
+        if jobs == 0 and workers > min_workers
           Logger.message("All queued jobs have been processed. " + (min_workers > 0 ? "Setting workers to #{min_workers}." : "Firing all workers."))
           workers(min_workers)
         end
