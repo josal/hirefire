@@ -5,10 +5,10 @@ module HireFire
   ##
   # HireFire constants
   LIB_PATH         = File.dirname(__FILE__) if !defined?(LIB_PATH)
-  HIREFIRE_PATH    = File.join(LIB_PATH,      'hirefire')
-  ENVIRONMENT_PATH = File.join(HIREFIRE_PATH, 'environment')
-  BACKEND_PATH     = File.join(HIREFIRE_PATH, 'backend')
-  WORKERS_PATH     = File.join(HIREFIRE_PATH, 'workers')
+  HIREFIRE_PATH    = File.join(LIB_PATH,      'hirefire') if !defined?(HIREFIRE_PATH)
+  ENVIRONMENT_PATH = File.join(HIREFIRE_PATH, 'environment') if !defined?(ENVIRONMENT_PATH)
+  BACKEND_PATH     = File.join(HIREFIRE_PATH, 'backend') if !defined?(BACKEND_PATH)
+  WORKERS_PATH     = File.join(HIREFIRE_PATH, 'workers') if !defined?(WORKERS_PATH)
 
   ##
   # HireFire namespace
@@ -38,8 +38,8 @@ module HireFire
   ##
   # HireFire::Backend namespace
   module Backend
-    DELAYED_JOB_PATH = File.join(BACKEND_PATH, 'delayed_job')
-    RESQUE_PATH      = File.join(BACKEND_PATH, 'resque')
+    DELAYED_JOB_PATH = File.join(BACKEND_PATH, 'delayed_job') if !defined?(DELAYED_JOB_PATH)
+    RESQUE_PATH      = File.join(BACKEND_PATH, 'resque') if !defined?(RESQUE_PATH)
 
     ##
     # HireFire::Backend::DelayedJob namespace
